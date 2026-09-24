@@ -1,0 +1,9 @@
+.git
+.github
+.venv
+__pycache__
+*.pyc
+*.log
+.env
+seen_urls.json
+README.md
