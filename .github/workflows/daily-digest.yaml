@@ -30,9 +30,9 @@ jobs:
           TAVILY_API_KEY: ${{ secrets.TAVILY_API_KEY }}
           SMTP_SERVER: ${{ vars.SMTP_SERVER }}
           SMTP_PORT: ${{ vars.SMTP_PORT }}
-          SMTP_SENDER: ${{ secrets.SMTP_USERNAME }}
-          SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
-          DIGEST_RECIPIENT: ${{ secrets.DIGEST_RECIPIENT }}
+          EMAIL_SENDER: ${{ secrets.EMAIL_SENDER }}
+          EMAIL_PASSWORD: ${{ secrets.EMAIL_PASSWORD }}
+          EMAIL_RECIPIENT: ${{ secrets.EMAIL_RECIPIENT }}
         run: uv run python main.py
 
       - name: Commit updated seen_urls.json
