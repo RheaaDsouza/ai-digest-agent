@@ -35,18 +35,6 @@ jobs:
           EMAIL_RECIPIENT: ${{ secrets.EMAIL_RECIPIENT }}
         run: uv run python main.py
 
-      - name: Commit updated seen_urls.json
-        run: |
-          git config user.name "news-agent-bot"
-          git config user.email "actions@github.com"
-          git add seen_urls.json
-          if git diff --staged --quiet; then
-            echo "No changes to seen_urls.json"
-          else
-            git commit -m "chore: update seen URLs [skip ci]"
-            git push
-          fi
-
       - name: Upload logs on failure
         if: failure()
         uses: actions/upload-artifact@v4

@@ -1,11 +1,10 @@
-from typing import TypedDict, List, Optional, Set
+from typing import Annotated, Optional, TypedDict
+from langgraph.graph.message import add_messages
 
 # State that flows through the graph.
 class AgentState(TypedDict):
     query: str
-    news_articles: List[dict]
-    research_papers: List[dict]
+    messages: Annotated[list, add_messages]
     curated_digest: str
     email_status: str
     error: Optional[str]
-    seen_urls: Set[str]
